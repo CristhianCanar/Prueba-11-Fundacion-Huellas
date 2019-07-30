@@ -16,4 +16,8 @@ public class Constantes {
             columna_0_ninios+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+columna_1_ninios+" TEXT, "+columna_2_ninios+" TEXT,"
             +columna_3_ninios+" TEXT, "+columna_4_ninios+" INTEGER, "+columna_5_ninios+" TEXT)");
 
+
+
+    public static final String DATOS_NINOS = "DAVID, ARGOTE, 9; CRISTHIAN, CAÑAR, 10";
+
 }
