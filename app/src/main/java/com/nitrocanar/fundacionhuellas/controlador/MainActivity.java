@@ -1,7 +1,10 @@
-package com.nitrocanar.fundacionhuellas;
+package com.nitrocanar.fundacionhuellas.controlador;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import com.nitrocanar.fundacionhuellas.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,4 +13,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 }
