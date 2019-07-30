@@ -12,12 +12,14 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListBoys {
 
-    public Boolean createFile(){
+    public void createFile() {
 
         try {
+
             File ruta = Environment.getExternalStorageDirectory();
 
             File file = new File(ruta.getAbsolutePath(), "datos.txt");
@@ -25,55 +27,73 @@ public class ListBoys {
             OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
 
             writer.write(Constantes.DATOS_NINOS);
+
             writer.close();
 
-            return true;
-
-        }catch (Exception e){
+        } catch (Exception e) {
 
             Log.e("Fichero", "Error al escribir fichero");
 
         }
-
-        return false;
     }
 
-    public void bringData(){
+    public List<Ninios> bringData() {
 
-        ArrayList<String> listData = new ArrayList<>();
+        ArrayList<Ninios> listData = new ArrayList<>();
 
-        Boolean create = createFile();
+        try {
 
-        if (create){
+            createFile();
 
-            try{
+            File ruta = Environment.getExternalStorageDirectory();
+
+            File file = new File(ruta.getAbsolutePath(), "datos.txt");
+
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+
+            String content[];
+            String line = "";
+
+            while (bufferedReader.ready()) {
+
+                if ((line = bufferedReader.readLine())!= null){
+
+                    Ninios boy = new Ninios();
+
+                    content = line.split(",");
+
+                    for (int i = 0; i < (content.length/(3)); i++){
 
 
-                File ruta = Environment.getExternalStorageDirectory();
+                        for (int x = 0;  x < content.length; x++){
+                            int col1 = 0;
+                            int col2 = 1;
+                            int col3 = 3;
+                            boy.setNinNombre(content[col1]);
+                            boy.setNinApellido(content[col2]);
+                            boy.setNinEdad(content[col3]);
+                            col1 = col1 +3;
+                            col2 = col2 + 3;
+                            col3 = col3 + 3;
 
-                File file = new File(ruta.getAbsolutePath(), "fichero.txt");
+                        }
 
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-
-                String content = bufferedReader.readLine();
-
-                while (bufferedReader.ready()){
-
-                    listData.add(content);
+                        listData.add(boy);
 
 
-
+                    }
                 }
-
-
-                bufferedReader.close();
-
-
-            }catch (Exception e){
-                Log.e("Fichero", "Error al leer");
             }
 
+
+            bufferedReader.close();
+
+
+        } catch (Exception e) {
+            Log.e("Fichero", "Error al leer");
         }
+
+        return listData;
 
     }
 

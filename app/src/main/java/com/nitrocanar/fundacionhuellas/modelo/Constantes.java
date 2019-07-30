@@ -31,6 +31,8 @@ public class Constantes {
 
 
 
-    public static final String DATOS_NINOS = "DAVID, ARGOTE, 9; CRISTHIAN, CAÑAR, 10";
+    public static final String DATOS_NINOS = "DAVID, ARGOTE, 9," +
+            "CRISTHIAN, CAÑAR, 10," +
+            "ANDRES, LOPEZ, 11";
 
 }
