@@ -8,11 +8,12 @@ public class Donante {
     private String donTelefono;
     private String donContrasenia;
     private String donTipo;
+    private byte[] donFirma;
 
     public Donante() {
     }
 
-    public Donante(int donId, String donNombre, String donApellido, String donEmail, String donTelefono, String donContrasenia, String donTipo) {
+    public Donante(int donId, String donNombre, String donApellido, String donEmail, String donTelefono, String donContrasenia, String donTipo, byte[] donFirma) {
         this.donId = donId;
         this.donNombre = donNombre;
         this.donApellido = donApellido;
@@ -20,6 +21,7 @@ public class Donante {
         this.donTelefono = donTelefono;
         this.donContrasenia = donContrasenia;
         this.donTipo = donTipo;
+        this.donFirma = donFirma;
     }
 
     public int getDonId() {
@@ -76,5 +78,13 @@ public class Donante {
 
     public void setDonTipo(String donTipo) {
         this.donTipo = donTipo;
+    }
+
+    public byte[] getDonFirma() {
+        return donFirma;
+    }
+
+    public void setDonFirma(byte[] donFirma) {
+        this.donFirma = donFirma;
     }
 }
