@@ -1,4 +1,4 @@
-package com.nitrocanar.fundacionhuellas;
+package com.nitrocanar.fundacionhuellas.modelo;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,6 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Xfermode;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -20,12 +23,11 @@ public class Lienzo extends View {
 
     private Canvas drawCanvas;
     private Bitmap canvasBitmap;
-
-
-
+    private Context context;
 
     public Lienzo(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         setupDrawing();
     }
 
@@ -81,5 +83,12 @@ public class Lienzo extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         drawCanvas = new Canvas(canvasBitmap);
+    }
+
+    public void clear(boolean estado){
+
+        if (estado) drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        else drawPaint.setXfermode(null);
+
     }
 }

@@ -1,4 +1,4 @@
-package com.nitrocanar.fundacionhuellas;
+package com.nitrocanar.fundacionhuellas.controlador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.nitrocanar.fundacionhuellas.R;
 import com.nitrocanar.fundacionhuellas.modelo.ConexionSQLiteHelper;
 import com.nitrocanar.fundacionhuellas.modelo.Constantes;
 import com.nitrocanar.fundacionhuellas.modelo.ManagerSQLiteHelper;
@@ -39,9 +40,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     //metodo para ingreso
     public void Ingresar(View view){
+
         SQLiteDatabase db = conexion.getWritableDatabase();
+
         String usuario = etUsuario.getText().toString();
         String contrasenia = etContrasenia.getText().toString();
+
         fila = db.rawQuery("SELECT "+ Constantes.columna_4_donante+" , "+Constantes.columna_5_donante+" FROM "+
                 Constantes.nom_tabla_donante+" WHERE "+Constantes.columna_4_donante+" = "+usuario+" AND "+
                 Constantes.columna_5_donante+" = "+contrasenia,null);
@@ -59,7 +63,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                 if (usuario.equals(usu) && contrasenia.equals(con)){
                     //si son iguales entonces vamos a otra ventana
-                    Intent intent = new Intent(Login.this,EspacioDespuesDeLogin.class);
+                    Intent intent = new Intent(Login.this, EspacioDespuesDeLogin.class);
                     startActivity(intent);
                     etUsuario.setText("");
                     etContrasenia.setText("");

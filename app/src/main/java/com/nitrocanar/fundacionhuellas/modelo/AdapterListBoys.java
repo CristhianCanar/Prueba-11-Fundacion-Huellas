@@ -1,6 +1,7 @@
 package com.nitrocanar.fundacionhuellas.modelo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,17 @@ public class AdapterListBoys extends BaseAdapter {
         name.setText(list.get(i).getNinNombre());
         lastName.setText(list.get(i).getNinApellido());
         age.setText(list.get(i).getNinEdad());
+
+        btnMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+
+                context.startActivity(intent);
+
+            }
+        });
 
         return view;
     }

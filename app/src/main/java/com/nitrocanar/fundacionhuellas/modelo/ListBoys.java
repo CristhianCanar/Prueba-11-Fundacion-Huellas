@@ -60,28 +60,14 @@ public class ListBoys {
 
                     Ninios boy = new Ninios();
 
-                    content = line.split(",");
+                    content = line.split(";");
 
-                    for (int i = 0; i < (content.length/(3)); i++){
+                    boy.setNinNombre(content[0]);
+                    boy.setNinApellido(content[1]);
+                    boy.setNinEdad(content[2]);
 
+                    listData.add(boy);
 
-                        for (int x = 0;  x < content.length; x++){
-                            int col1 = 0;
-                            int col2 = 1;
-                            int col3 = 3;
-                            boy.setNinNombre(content[col1]);
-                            boy.setNinApellido(content[col2]);
-                            boy.setNinEdad(content[col3]);
-                            col1 = col1 +3;
-                            col2 = col2 + 3;
-                            col3 = col3 + 3;
-
-                        }
-
-                        listData.add(boy);
-
-
-                    }
                 }
             }
 

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 public class ManagerSQLiteHelper {
+
     //REFERENCIAS
     ArrayList<Ninios> listaNinios = new ArrayList<Ninios>();
     ArrayList<Donante> listaDonante = new ArrayList<Donante>();
@@ -34,7 +35,7 @@ public class ManagerSQLiteHelper {
             db.close();
     }
 
-    //insertar datos Nnio
+    //insertar datos Niño
     public boolean InsertarDatosNinios (Ninios ninios){
         OpenBD();
         ContentValues contenedor = new ContentValues();

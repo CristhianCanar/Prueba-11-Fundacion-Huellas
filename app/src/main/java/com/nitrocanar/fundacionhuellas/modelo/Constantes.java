@@ -30,8 +30,9 @@ public class Constantes {
             +columna_3_donante+" TEXT, "+columna_4_donante+" TEXT, "+columna_5_donante+" TEXT,"+columna_6_donante+ " TEXT,"+columna_7_donante+" BLOB)");
 
 
-    public static final String DATOS_NINOS = "DAVID, ARGOTE, 9," +
-            "CRISTHIAN, CAÑAR, 10," +
-            "ANDRES, LOPEZ, 11";
+    public static final String DATOS_NINOS = "David;Argote;8\n" +
+                                             "Alex;Vásquez;9\n" +
+                                             "Jhon;Ramirez;10\n" +
+                                             "Esteban;Lopez;6";
 
 }

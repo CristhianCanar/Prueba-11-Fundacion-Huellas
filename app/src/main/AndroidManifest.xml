@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EspacioDespuesDeLogin"></activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Splash">
+        <activity android:name=".controlador.EspacioDespuesDeLogin"></activity>
+        <activity android:name=".controlador.Login" />
+        <activity android:name=".controlador.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Registrar"
+            android:name=".controlador.Registrar"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".controlador.ListBoysActivity" />
-        <activity android:name=".controlador.MainActivity" />
+        <activity android:name=".controlador.ListBoysActivity"></activity>
+        <activity android:name=".controlador.MainActivity"></activity>
     </application>
 
 </manifest>

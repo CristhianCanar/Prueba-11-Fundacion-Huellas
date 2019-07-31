@@ -1,8 +1,10 @@
-package com.nitrocanar.fundacionhuellas;
+package com.nitrocanar.fundacionhuellas.controlador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.nitrocanar.fundacionhuellas.R;
 
 public class EspacioDespuesDeLogin extends AppCompatActivity {
 

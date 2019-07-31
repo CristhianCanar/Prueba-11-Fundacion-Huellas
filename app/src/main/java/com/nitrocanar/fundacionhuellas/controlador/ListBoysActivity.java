@@ -32,8 +32,6 @@ public class ListBoysActivity extends AppCompatActivity {
 
         ArrayList<Ninios> list = new ArrayList<>(listBoys.bringData());
 
-        Toast.makeText(this, "" + list.get(0).getNinNombre(), Toast.LENGTH_SHORT).show();
-
         adapterListBoys = new AdapterListBoys(this,  list);
 
         lvLista.setAdapter(adapterListBoys);
