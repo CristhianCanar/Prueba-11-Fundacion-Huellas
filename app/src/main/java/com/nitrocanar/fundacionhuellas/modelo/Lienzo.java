@@ -8,9 +8,13 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Xfermode;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.EventLog;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,9 +24,13 @@ public class Lienzo extends View {
     private Path drawPath;
     private Paint drawPaint,canvasPaint;
     private int paintColor= 0xFF000000;
-
     private Canvas drawCanvas;
     private Bitmap canvasBitmap;
+    float lapizTamanio;
+    public static boolean borrador = false;
+
+
+
     private Context context;
 
     public Lienzo(Context context, AttributeSet attrs) {
@@ -36,7 +44,8 @@ public class Lienzo extends View {
         drawPaint = new Paint();
         drawPaint.setColor(paintColor);
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(10);
+        lapizTamanio = 10;
+        drawPaint.setStrokeWidth(lapizTamanio);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -83,6 +92,23 @@ public class Lienzo extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         drawCanvas = new Canvas(canvasBitmap);
+    }
+
+    public void setLapiz(float nuevoTamanio){
+        float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                nuevoTamanio, getResources().getDisplayMetrics());
+        lapizTamanio = pixel;
+        drawPaint.setStrokeWidth(lapizTamanio);
+
+    }
+
+    //set borrado
+    public void  setBorrado(boolean estadoBorrador){
+        borrador = estadoBorrador;
+        if (borrador) drawPaint.setColor(Color.WHITE);
+        //if (borrador) drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        //else drawPaint.setXfermode(null);
+        else drawPaint.setColor(paintColor);
     }
 
     public void clear(boolean estado){
